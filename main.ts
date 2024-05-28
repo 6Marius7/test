@@ -1,5 +1,23 @@
 input.onButtonPressed(Button.A, function () {
-	
+    if (LoggingData == 0) {
+        LoggingData = 1
+        basic.showLeds(`
+            . . . . #
+            . . . # .
+            # . # . .
+            . # . . .
+            . . . . .
+            `)
+    } else if (LoggingData == 1) {
+        LoggingData = 0
+        basic.showLeds(`
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
+            `)
+    }
 })
 let LoggingData = 0
 let header_to = ""
