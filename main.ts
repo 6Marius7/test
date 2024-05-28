@@ -19,6 +19,7 @@ input.onButtonPressed(Button.A, function () {
             `)
     }
 })
+let Row_to = ""
 let LoggingData = 0
 let header_to = ""
 let logging_data = 0
@@ -43,5 +44,9 @@ while (logging_data == 0) {
     LoggingData = 0
 }
 basic.forever(function () {
-	
+    if (LoggingData == 1) {
+        Row_to = "" + input.runningTime() + "," + (weatherbit.temperature() + 0) + "," + (weatherbit.humidity() + 1024) + "," + (weatherbit.pressure() + 25600) + "," + weatherbit.windSpeed() + "," + weatherbit.windDirection() + "," + weatherbit.rain()
+    }
+    serial.writeLine("Row")
+    basic.pause(1 * 1000)
 })
